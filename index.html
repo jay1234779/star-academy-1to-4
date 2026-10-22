@@ -1,0 +1,838 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Academy Classes | Learn Grow Shine</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+:root{
+    --blue:#0754a5;
+    --navy:#071d49;
+    --yellow:#ffcf32;
+    --sky:#e9f8ff;
+    --pink:#ff77ad;
+    --green:#13b987;
+}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--navy);
+    background:#f7fcff;
+    line-height:1.6;
+}
+a{
+    text-decoration:none;
+}
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+.topbar{
+    background:var(--navy);
+    color:white;
+    text-align:center;
+    padding:9px;
+    font-size:13px;
+}
+header{
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 4px 20px #001d4b15;
+}
+nav{
+    min-height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:23px;
+    font-weight:900;
+}
+.logo-icon{
+    background:var(--yellow);
+    border:3px solid var(--navy);
+    padding:7px;
+    border-radius:15px;
+    font-size:26px;
+}
+.logo small{
+    display:block;
+    color:var(--blue);
+    font-size:10px;
+    letter-spacing:2px;
+}
+.navlinks{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+.navlinks a{
+    color:var(--navy);
+    font-weight:bold;
+}
+.navlinks a:hover{
+    color:var(--blue);
+}
+.btn{
+    display:inline-block;
+    padding:13px 21px;
+    border-radius:40px;
+    font-weight:bold;
+    transition:.25s;
+    cursor:pointer;
+}
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px #001d4b25;
+}
+.yellow{
+    background:var(--yellow);
+    color:var(--navy);
+}
+.dark{
+    background:var(--navy);
+    color:white;
+}
+.white{
+    background:white;
+    color:var(--navy);
+}
+.menu{
+    display:none;
+    background:var(--navy);
+    color:white;
+    border:0;
+    border-radius:10px;
+    padding:10px 13px;
+    font-weight:bold;
+}
+.hero{
+    padding:70px 0;
+    background:linear-gradient(125deg,#8be4ff,#f0fbff 55%,#fff0b0);
+    overflow:hidden;
+}
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:35px;
+}
+.badge{
+    display:inline-block;
+    background:white;
+    padding:9px 15px;
+    border-radius:30px;
+    color:#9b5a00;
+    font-weight:bold;
+    font-size:13px;
+    border:1px solid #ffe29a;
+}
+.hero h1{
+    font-size:clamp(43px,6vw,75px);
+    line-height:1.03;
+    margin:23px 0;
+    letter-spacing:-2px;
+}
+.blue{
+    color:var(--blue);
+}
+.highlight{
+    background:var(--yellow);
+    border-radius:8px;
+    padding:0 5px;
+}
+.hero p{
+    color:#526681;
+    font-size:17px;
+    margin-bottom:23px;
+}
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+.hero-art{
+    min-height:370px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+.kids{
+    width:100%;
+    max-width:420px;
+    aspect-ratio:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:clamp(100px,15vw,165px);
+    background:linear-gradient(140deg,#c2f2ff,#fff0b5);
+    border:9px solid white;
+    border-radius:45% 55% 50% 50%;
+    box-shadow:0 25px 55px #0754a520;
+    animation:float 4s ease-in-out infinite;
+}
+.star{
+    position:absolute;
+    right:5%;
+    top:4%;
+    font-size:55px;
+    animation:float 3s ease-in-out infinite;
+}
+.note{
+    position:absolute;
+    bottom:7%;
+    right:0;
+    background:white;
+    padding:15px 20px;
+    border-radius:17px;
+    font-weight:bold;
+    box-shadow:0 10px 25px #071d4920;
+}
+.note span{
+    display:block;
+    color:var(--blue);
+}
+@keyframes float{
+    50%{transform:translateY(-12px) rotate(2deg);}
+}
+.strip{
+    background:var(--navy);
+    color:white;
+    padding:20px 0;
+}
+.strip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    text-align:center;
+    gap:15px;
+    font-weight:bold;
+}
+.strip span{
+    color:var(--yellow);
+}
+section{
+    padding:80px 0;
+}
+.section-title{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+.eyebrow{
+    color:var(--blue);
+    letter-spacing:2px;
+    font-weight:bold;
+    font-size:12px;
+}
+.section-title h2{
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.15;
+    margin:10px 0;
+}
+.section-title p{
+    color:#647692;
+}
+.features{
+    background:linear-gradient(#f7fcff,#e8f7ff);
+}
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+.card{
+    background:white;
+    padding:23px 14px;
+    border:1px solid #d9edff;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 10px 25px #071d4908;
+    transition:.25s;
+}
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px #071d4918;
+}
+.icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 15px;
+    border-radius:22px;
+    background:#dcf4ff;
+    display:grid;
+    place-items:center;
+    font-size:34px;
+}
+.card:nth-child(2) .icon{background:#ffe3ef;}
+.card:nth-child(3) .icon{background:#d9fff0;}
+.card:nth-child(4) .icon{background:#eee4ff;}
+.card:nth-child(5) .icon{background:#fff0bd;}
+.card h3{
+    font-size:16px;
+    line-height:1.3;
+    margin-bottom:9px;
+}
+.card p{
+    color:#647692;
+    font-size:13px;
+}
+.admission{
+    margin-top:35px;
+    padding:23px;
+    border:3px solid var(--navy);
+    border-radius:20px;
+    background:var(--yellow);
+    box-shadow:6px 6px 0 var(--navy);
+    text-align:center;
+    font-size:clamp(20px,3vw,34px);
+    font-weight:900;
+}
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+.about-art{
+    min-height:350px;
+    background:linear-gradient(145deg,#ffebad,#b7efff);
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:clamp(100px,14vw,160px);
+    position:relative;
+}
+.sticker{
+    position:absolute;
+    background:white;
+    padding:12px 15px;
+    border-radius:14px;
+    font-size:13px;
+    font-weight:bold;
+    box-shadow:0 10px 25px #071d4915;
+}
+.sticker.one{top:20px;left:15px;}
+.sticker.two{bottom:20px;right:15px;}
+.about-copy h2{
+    font-size:clamp(34px,4vw,49px);
+    line-height:1.1;
+    margin:12px 0 17px;
+}
+.about-copy p{
+    color:#647692;
+}
+.check-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin:22px 0;
+}
+.check{
+    padding:12px;
+    border:1px solid #dcecff;
+    border-radius:12px;
+    background:#f5fbff;
+    font-size:13px;
+    font-weight:bold;
+}
+.check b{
+    color:var(--green);
+}
+.learning{
+    background:#fff7df;
+}
+.learning-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+.learning-card{
+    background:white;
+    padding:28px;
+    border-radius:24px;
+    border:1px solid #ffebaf;
+    transition:.25s;
+}
+.learning-card:hover{
+    transform:translateY(-6px);
+}
+.number{
+    font-size:42px;
+    color:#f5b51a;
+    font-weight:900;
+}
+.learning-card h3{
+    font-size:23px;
+    margin:5px 0;
+}
+.learning-card p{
+    color:#647692;
+}
+.cta{
+    background:linear-gradient(120deg,#08275d,#1268b9);
+    color:white;
+    text-align:center;
+    padding:60px 0;
+}
+.cta h2{
+    font-size:clamp(30px,4vw,47px);
+    line-height:1.15;
+    margin-bottom:13px;
+}
+.cta p{
+    color:#dceaff;
+    margin:0 auto 23px;
+    max-width:650px;
+}
+.contact{
+    background:#edf9ff;
+}
+.contact-panel{
+    background:linear-gradient(125deg,#08275d,#10559c);
+    color:white;
+    border-radius:28px;
+    padding:clamp(24px,5vw,45px);
+    box-shadow:0 20px 45px #09295f20;
+}
+.contact-panel .section-title h2{
+    color:white;
+}
+.contact-panel .section-title p{
+    color:#d6e8ff;
+}
+.contact-panel .eyebrow{
+    color:var(--yellow);
+}
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+.contact-card{
+    display:flex;
+    gap:15px;
+    padding:22px;
+    background:#ffffff0d;
+    border:1px solid #ffffff25;
+    border-radius:19px;
+}
+.contact-icon{
+    width:52px;
+    height:52px;
+    flex-shrink:0;
+    display:grid;
+    place-items:center;
+    background:var(--yellow);
+    border-radius:16px;
+    font-size:25px;
+}
+.contact-card h3{
+    color:var(--yellow);
+    margin-bottom:7px;
+}
+.contact-card p{
+    color:#e5efff;
+    font-size:14px;
+    overflow-wrap:anywhere;
+}
+.contact-card a{
+    color:var(--yellow);
+    font-weight:bold;
+}
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+footer{
+    background:#041938;
+    color:#d8e8ff;
+    text-align:center;
+    padding:30px 0;
+}
+.footer-logo{
+    font-size:25px;
+    font-weight:900;
+    color:var(--yellow);
+}
+footer p{
+    font-size:13px;
+    margin-top:5px;
+}
+.back-top{
+    position:fixed;
+    bottom:17px;
+    right:17px;
+    width:45px;
+    height:45px;
+    display:grid;
+    place-items:center;
+    background:var(--yellow);
+    color:var(--navy);
+    border-radius:14px;
+    font-size:25px;
+    font-weight:bold;
+    box-shadow:0 8px 22px #09295f30;
+}
+.reveal{
+    animation:appear .8s ease both;
+}
+@keyframes appear{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@media(max-width:950px){
+    .feature-grid{grid-template-columns:repeat(3,1fr);}
+    .navlinks{gap:12px;}
+    .navlinks a{font-size:13px;}
+}
+@media(max-width:720px){
+    .nav{min-height:72px;}
+    .menu{display:block;}
+    .navlinks{
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:72px;
+        background:white;
+        padding:20px 5%;
+        flex-direction:column;
+        align-items:stretch;
+        box-shadow:0 15px 20px #09295f15;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:9px;font-size:15px;}
+    .hero{padding:50px 0;}
+    .hero-grid,.about-grid{grid-template-columns:1fr;}
+    .hero-copy{margin:auto;}
+    .hero-art{min-height:290px;}
+    .hero-grid{text-align:center;}
+    .hero-buttons{justify-content:center;}
+    .proof{justify-content:center;}
+    .strip-grid{grid-template-columns:1fr;gap:8px;}
+    section{padding:60px 0;}
+    .about-grid{gap:28px;}
+    .about-art{min-height:280px;}
+    .learning-grid,.contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:470px){
+    .logo{font-size:19px;}
+    .logo small{font-size:8px;}
+    .logo-icon{font-size:22px;}
+    .hero h1{font-size:45px;}
+    .feature-grid{grid-template-columns:1fr 1fr;gap:10px;}
+    .card{padding:19px 10px;}
+    .icon{width:59px;height:59px;font-size:28px;}
+    .card h3{font-size:14px;}
+    .card p{font-size:11px;}
+    .check-grid{grid-template-columns:1fr;}
+    .contact-card{padding:15px 11px;gap:10px;}
+    .contact-icon{width:43px;height:43px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+📚 A Happy Place to Learn, Grow and Shine! &nbsp; | &nbsp; ⭐ Admissions Open: Classes 1st to 4th
+</div>
+
+<header>
+<div class="container">
+<nav>
+<a href="#home" class="logo">
+<span class="logo-icon">⭐</span>
+<span>Star Academy<small>CLASSES · LEARN WITH CONFIDENCE</small></span>
+</a>
+
+<button class="menu" id="menuButton">☰ Menu</button>
+
+<div class="navlinks" id="navLinks">
+<a href="#home">Home</a>
+<a href="#features">Why Us</a>
+<a href="#about">About</a>
+<a href="#learning">Our Focus</a>
+<a href="#contact" class="btn yellow">Enquire Now ↗</a>
+</div>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+
+<div class="reveal">
+<span class="badge">✨ ADMISSIONS OPEN FOR 1ST–4TH</span>
+
+<h1>
+Little Steps.<br>
+<span class="blue">Big Dreams.</span><br>
+<span class="highlight">Bright Futures!</span>
+</h1>
+
+<p>
+Give your child a confident start with friendly guidance,
+individual attention and supportive learning at
+<strong>Star Academy Classes.</strong>
+</p>
+
+<div class="hero-buttons">
+<a class="btn dark" href="tel:+918668916871">☎ Call Academy</a>
+<a class="btn yellow" href="#contact">✉ Admission Enquiry</a>
+</div>
+
+<div class="proof">
+<span>👧 👦 🧒</span>
+<span>A welcoming learning space for young learners</span>
+</div>
+</div>
+
+<div class="hero-art reveal">
+<div class="kids">👧🏻👦🏻</div>
+<div class="star">⭐</div>
+<div class="note">🎒 Ready to learn?<span>Let's shine together!</span></div>
+</div>
+
+</div>
+</section>
+
+<div class="strip">
+<div class="container strip-grid">
+<div><span>✦</span> Limited Students Batch</div>
+<div><span>✦</span> Individual Attention</div>
+<div><span>✦</span> Chapter-Wise Tests</div>
+</div>
+</div>
+
+<section class="features" id="features">
+<div class="container">
+
+<div class="section-title reveal">
+<div class="eyebrow">THE STAR ADVANTAGE</div>
+<h2>Why Parents Choose Us ⭐</h2>
+<p>Every child learns in their own way. We aim to make learning supportive, engaging and easy to follow.</p>
+</div>
+
+<div class="feature-grid">
+<div class="card reveal">
+<div class="icon">👨‍👩‍👧</div>
+<h3>Limited Students Batch</h3>
+<p>A small-batch environment with more room to participate.</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">👩‍🏫</div>
+<h3>Individual Attention</h3>
+<p>Personal attention to help children understand topics step by step.</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">💬</div>
+<h3>Doubt-Solving Sessions</h3>
+<p>A friendly space to ask questions and clear up doubts.</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">📈</div>
+<h3>Focus on Progress</h3>
+<p>Encouraging steady learning and growing confidence.</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">📋</div>
+<h3>Chapter-Wise Tests</h3>
+<p>Practice tests to review topics and identify areas for practice.</p>
+</div>
+</div>
+
+<div class="admission reveal">
+🌟 ADMISSIONS OPEN · CLASSES 1ST TO 4TH 🌟
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container about-grid">
+
+<div class="about-art reveal">
+<span class="sticker one">📖 Learn at your pace</span>
+<span>🎒📚</span>
+<span class="sticker two">⭐ Every step counts!</span>
+</div>
+
+<div class="about-copy reveal">
+<div class="eyebrow">WELCOME TO STAR ACADEMY</div>
+<h2>Strong Basics.<br>Confident Learners.</h2>
+
+<p>
+Our goal is to support young learners as they build a strong
+foundation for school. With individual attention, doubt-solving
+support and chapter-wise practice, students can keep working
+towards their learning goals.
+</p>
+
+<div class="check-grid">
+<div class="check"><b>✓</b> Classes 1st to 4th</div>
+<div class="check"><b>✓</b> Individual attention</div>
+<div class="check"><b>✓</b> Doubt-solving support</div>
+<div class="check"><b>✓</b> Chapter-wise tests</div>
+</div>
+
+<a href="#contact" class="btn yellow">Ask About Admission →</a>
+</div>
+
+</div>
+</section>
+
+<section class="learning" id="learning">
+<div class="container">
+
+<div class="section-title reveal">
+<div class="eyebrow">OUR LEARNING APPROACH</div>
+<h2>Small Steps Make a Difference</h2>
+<p>Supportive learning habits can help children approach schoolwork with more confidence.</p>
+</div>
+
+<div class="learning-grid">
+<div class="learning-card reveal">
+<div class="number">01</div>
+<h3>Understand</h3>
+<p>Build understanding through clear explanations and a supportive learning environment.</p>
+</div>
+
+<div class="learning-card reveal">
+<div class="number">02</div>
+<h3>Practise</h3>
+<p>Use chapter-wise practice and question-solving to strengthen learning over time.</p>
+</div>
+
+<div class="learning-card reveal">
+<div class="number">03</div>
+<h3>Grow</h3>
+<p>Review progress, work on doubts and celebrate each step forward.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="cta">
+<div class="container reveal">
+<h2>Let's Make Learning Brighter! 🌈</h2>
+<p>
+Looking for classes for your child in 1st to 4th standard?
+Contact Star Academy Classes to ask about admissions.
+</p>
+<a href="tel:+918668916871" class="btn yellow">☎ Call 86689 16871</a>
+<a href="#contact" class="btn white">View Contact Details ↓</a>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-panel">
+
+<div class="section-title reveal">
+<div class="eyebrow">WE'D LOVE TO HEAR FROM YOU</div>
+<h2>Get in Touch 📍</h2>
+<p>Contact us for admission enquiries for Classes 1st to 4th.</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card reveal">
+<div class="contact-icon">📍</div>
+<div>
+<h3>Visit Our Academy</h3>
+<p>
+Near Aqsa Masjid, Shilp Nagar,<br>
+Beed Bypass Road, Satara Parisar,<br>
+Chhatrapati Sambhaji Nagar,<br>
+Maharashtra – 431001
+</p>
+<p style="margin-top:10px">
+<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Near+Aqsa+Masjid%2C+Shilp+Nagar%2C+Beed+Bypass+Road%2C+Satara+Parisar%2C+Chhatrapati+Sambhaji+Nagar%2C+Maharashtra+431001">
+Open Location in Maps ↗
+</a>
+</p>
+</div>
+</div>
+
+<div class="contact-card reveal">
+<div class="contact-icon">☎</div>
+<div>
+<h3>Call / Enquire</h3>
+<p>Contact Number</p>
+<p><a href="tel:+918668916871" style="font-size:25px">8668916871</a></p>
+<p>Call us for admission enquiries.</p>
+</div>
+</div>
+
+</div>
+
+<div class="contact-buttons">
+<a href="tel:+918668916871" class="btn yellow">☎ Call Academy</a>
+<a target="_blank" rel="noopener"
+href="https://wa.me/918668916871?text=Hello%20Star%20Academy%20Classes%2C%20I%20would%20like%20to%20enquire%20about%20admission%20for%20Classes%201st%20to%204th."
+class="btn white">🟢 WhatsApp Enquiry ↗</a>
+</div>
+
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-logo">⭐ Star Academy Classes ⭐</div>
+<p>Building strong foundations · Helping young learners shine!</p>
+<p>© <span id="year"></span> Star Academy Classes. All rights reserved.</p>
+</div>
+</footer>
+
+<a href="#home" class="back-top" aria-label="Back to top">↑</a>
+
+<script>
+var menuButton = document.getElementById("menuButton");
+var navLinks = document.getElementById("navLinks");
+
+menuButton.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+});
+
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+    });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+```
